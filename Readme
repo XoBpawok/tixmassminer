@@ -1,0 +1,10 @@
+how to use
+1. install nodejs
+2. download and unpack this project
+3. go to the project directory
+4. run
+    npm install
+5. set credentials and at the options.json
+6. set your id to up karma (negative value of karmaDiff will decrease karma)
+7. run
+    node miner

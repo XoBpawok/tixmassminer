@@ -1,0 +1,16 @@
+{
+  "karma": {
+    "karmaId": "2583869b-0492-401b-be8d-d89bb245e8de",
+    "karmaDiff": 4
+  },
+  "credentials": [
+    {
+      "email": "examplel@email.com",
+      "password": "password1"
+    },
+    {
+      "email": "example2@email.com",
+      "password": "password2"
+    }
+  ]
+}
