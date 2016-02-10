@@ -23,7 +23,7 @@ module.exports = {
 		if (msg[0] === 'auth') {
 			return msg[1].user;
 		}
-		return false;
+		return null;
 	},
 	ping: function(connection) {
 		connection.send('["ping"]');

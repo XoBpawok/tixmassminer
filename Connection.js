@@ -47,8 +47,7 @@ Connection.prototype.startMainWS = function(cookies) {
 
 		connection.on('message', function(message) {
 			if (message.type === 'utf8') {
-				// console.log("Received: '" + message.utf8Data + "'");
-				self.user = Helper.getUser(message.utf8Data);
+				self.user = self.user || Helper.getUser(message.utf8Data);
 			}
 		});
 
@@ -59,7 +58,7 @@ Connection.prototype.startMainWS = function(cookies) {
 			}
 			clearInterval(pingInterval);
 			connection.close();
-		}, 1500, self, connection, pingInterval);
+		}, 2000, self, connection, pingInterval);
 	});
 }
 
