@@ -33,18 +33,21 @@ module.exports = {
 		console.log('user: ' + user.displayName + ' | ' + user.id + '  \r\n  email ' + user.email + '  \r\n  cookies ' + user.coins);
 	},
 	changeKarma: function(karmaOpts, connection) {
-		var karmaAction = '';
+		var karmaAction = '',
+			diff = 0;
 
 		if (karmaOpts.karmaDiff > 0) {
 			karmaAction = 'plusKarma';
+			diff = 1;
 		} else if (karmaOpts.karmaDiff < 0) {
 			karmaAction = 'minusKarma';
+			diff = -1;
 		} else {
 			return;
 		}
 
-		for (var i = karmaOpts.karmaDiff - 1; i >= 0; i--) {
-			connection.send('["request",{"scope":"user","user":"' + karmaOpts.karmaId + '","method":"karmaTransaction","params":{"amount":"1","action":"' + karmaAction + '"}}]');
+		for (var i = Math.abs(karmaOpts.karmaDiff) - 1; i >= 0; i--) {
+			connection.send('["request",{"scope":"user","user":"' + karmaOpts.karmaId + '","method":"karmaTransaction","params":{"amount":"' + diff + '","action":"' + karmaAction + '"}}]');
 		};
 		console.log('karma was changed for user ' + karmaOpts.karmaId + ' by ' + karmaOpts.karmaDiff);
 	}
