@@ -7,7 +7,7 @@ setInterval(loopFunc, 27 * 60 * 1000);
 function loopFunc() {
 	console.log('/---------------------------------');
 	console.log('Queue started at ' + new Date());
-	fs.readFile('options.json', 'utf8', function(err, data) {
+	fs.readFile(__dirname + '/options.json', 'utf8', function(err, data) {
 		var opts = JSON.parse(data);
 		console.log('Read ' + opts.credentials.length + ' accounts')
 		for (var i = opts.credentials.length - 1; i >= 0; i--) {
